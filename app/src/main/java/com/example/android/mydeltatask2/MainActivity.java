@@ -10,6 +10,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -160,17 +161,25 @@ public class MainActivity extends AppCompatActivity {
     }
     public void result()
     {
-        TextView textView = (TextView) findViewById(R.id.res);
-        if(frame[tx][d[tx]-1]==1)
-        {
-            textView.setText("Red");
-            textView.setTextColor(Color.parseColor("#f44336"));
-        }
-        else
-        {
-            textView.setText("Yellow");
-            textView.setTextColor(Color.YELLOW);
-        }
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setContentView(R.layout.result);
+                TextView textView = (TextView) findViewById(R.id.res);
+                if(frame[tx][d[tx]-1]==1)
+                {
+                    textView.setText("Red");
+                    textView.setTextColor(Color.parseColor("#f44336"));
+                }
+                else
+                {
+                    textView.setText("Yellow");
+                    textView.setTextColor(Color.YELLOW);
+                }
+
+            }
+        },1500);
 
     }
 
@@ -179,20 +188,20 @@ public class MainActivity extends AppCompatActivity {
         a=tx;
         b=d[tx]-1;
         if(b>2&&frame[a][b]==frame[a][b-1]&&frame[a][b]==frame[a][b-2]&&frame[a][b]==frame[a][b-3])
-        {setContentView(R.layout.result);
+        {
         result();
         }
 
         for(int i=0;i<l-3;i++)
         {if(frame[i][b]==frame[a][b]&&frame[i+1][b]==frame[a][b]&&frame[i+2][b]==frame[a][b]&&frame[i+3][b]==frame[a][b])
-         {setContentView(R.layout.result);
+         {
              result();
          }
         }
         if(a-b>=0) {
             for (int i = 0; i < z - 3&&a-b+i<l-3; i++) {
                 if (frame[a-b+i][i]==frame[a][b]&&frame[a-b+i+1][i+1]==frame[a][b]&&frame[a-b+i+2][i+2]==frame[a][b]&&frame[a-b+i+3][i+3]==frame[a][b])
-                {setContentView(R.layout.result);
+                {
                     result();
                 }
             }
@@ -202,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
             for(int i=0;i<l-3&&b-a+i<z-3;i++)
             {
                 if(frame[i][b-a+i]==frame[a][b]&&frame[i+1][b-a+i+1]==frame[a][b]&&frame[i+2][b-a+i+2]==frame[a][b]&&frame[i+3][b-a+i+3]==frame[a][b])
-                {setContentView(R.layout.result);
+                {
                     result();
                 }
             }
@@ -213,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 if(frame[a+b-i][i]==frame[a][b]&&frame[a+b-i-1][i+1]==frame[a][b]&&frame[a+b-i-2][i+2]==frame[a][b]&&frame[a+b-i-3][i+3]==frame[a][b])
                 {
-                    setContentView(R.layout.result);
+
                     result();
                 }
             }
@@ -223,18 +232,27 @@ public class MainActivity extends AppCompatActivity {
             for(int i=l-1;i>2&&i>a+b-z+3;i--)
             {
                 if(frame[i][a+b-i]==frame[a][b]&&frame[i-1][a+b-i+1]==frame[a][b]&&frame[i-2][a+b-i+2]==frame[a][b]&&frame[i-3][a+b-i+3]==frame[a][b])
-                {setContentView(R.layout.result);
+                {
                     result();
                 }
             }
         }
     }
     public void tie()
-    {   setContentView(R.layout.result);
-        TextView textView = (TextView) findViewById(R.id.res);
-        TextView textView1 = (TextView) findViewById(R.id.restop);
-        textView.setText("Tie");
-        textView1.setVisibility(View.GONE);
+    {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setContentView(R.layout.result);
+                TextView textView = (TextView) findViewById(R.id.res);
+                TextView textView1 = (TextView) findViewById(R.id.restop);
+                textView.setText("Tie");
+                textView1.setVisibility(View.GONE);
+
+            }
+        },1500);
+
     }
 
     public void undo(View view)
