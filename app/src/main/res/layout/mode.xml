@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#212121"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffa000"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:onClick="player"
+        android:text="Player Vs Player"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffa000"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:onClick="computer"
+        android:text="Computer Vs Player\n(In Development)"/>
+
+</LinearLayout>

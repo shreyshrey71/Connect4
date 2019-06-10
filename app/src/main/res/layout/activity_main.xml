@@ -9,12 +9,27 @@
     android:background="#212121"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#000000"
+        android:layout_above="@id/temp2"
+        android:id="@+id/temp3"></View>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/holo_orange_light"
+        android:layout_above="@id/temp"
+        android:id="@+id/temp2"></View>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Undo"
         android:layout_alignParentBottom="true"
-        android:background="#ffa000"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:onClick="undo"
+        android:background="#000000"
         android:id="@+id/temp"/>
 
 </RelativeLayout>
